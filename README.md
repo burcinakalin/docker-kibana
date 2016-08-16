@@ -20,10 +20,15 @@ elasticsearch.url: 'http://ELASTICSEARCH_HOST:ELASTICSEARCH_PORT'
 Kibana use default variable.
 
 logging.dest: stdout
+
 logging.silent: false
+
 logging.quiet: false
+
 logging.verbose: false
+
 elasticsearch.host: localhost
+
 elasticsearch.port: 9200
 
 Run Example
