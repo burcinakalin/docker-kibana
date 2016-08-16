@@ -6,30 +6,30 @@ This is the Git repo of the Docker image for Kibana.
 
 ##If you would like to set to environment variable 
 
-*logging.dest:LOGGING_DEST
+* logging.dest:LOGGING_DEST
 
-*logging.silent:LOGGING_SILENT 
+* logging.silent:LOGGING_SILENT 
 
-*logging.quiet:LOGGING_QUIET  
+* logging.quiet:LOGGING_QUIET  
 
-*logging.verbose:LOGGING_VERBOSE 
+* logging.verbose:LOGGING_VERBOSE 
 
-*elasticsearch.url: 'http://ELASTICSEARCH_HOST:ELASTICSEARCH_PORT'
+* elasticsearch.url: 'http://ELASTICSEARCH_HOST:ELASTICSEARCH_PORT'
 
 
 ##Kibana use default variable.
 
-*logging.dest: stdout
+* logging.dest: stdout
 
-*logging.silent: false
+* logging.silent: false
 
-*logging.quiet: false
+* logging.quiet: false
 
-*logging.verbose: false
+* logging.verbose: false
 
-*elasticsearch.host: localhost
+* elasticsearch.host: localhost
 
-*elasticsearch.port: 9200
+* elasticsearch.port: 9200
 
 ###Run Example
 
