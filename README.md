@@ -4,7 +4,7 @@ This is the Git repo of the Docker image for Kibana.
 
 ###Usage 
 
-If you would like to set to environment variable 
+##If you would like to set to environment variable 
 
 *logging.dest:LOGGING_DEST
 
@@ -16,7 +16,8 @@ If you would like to set to environment variable
 
 *elasticsearch.url: 'http://ELASTICSEARCH_HOST:ELASTICSEARCH_PORT'
 
-Kibana use default variable.
+
+##Kibana use default variable.
 
 *logging.dest: stdout
 
