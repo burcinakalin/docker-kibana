@@ -1,31 +1,36 @@
-About this Repo 
+##About this Repo 
 
-This is the Git repo of the Docker image for kibana. 
+This is the Git repo of the Docker image for Kibana. 
 
-Usage 
+###Usage 
 
-If you would like to set to environment variable 
+##If you would like to set to environment variable 
+
+* logging.dest:LOGGING_DEST
+
+* logging.silent:LOGGING_SILENT 
+
+* logging.quiet:LOGGING_QUIET  
+
+* logging.verbose:LOGGING_VERBOSE 
+
+* elasticsearch.url: 'http://ELASTICSEARCH_HOST:ELASTICSEARCH_PORT'
 
 
-logging.dest:LOGGING_DEST
+##Kibana use default variable.
 
-logging.silent:LOGGING_SILENT 
+* logging.dest: stdout
 
-logging.quiet:LOGGING_QUIET  
+* logging.silent: false
 
-logging.verbose:LOGGING_VERBOSE 
+* logging.quiet: false
 
-elasticsearch.url: 'http://ELASTICSEARCH_HOST:ELASTICSEARCH_PORT'
+* logging.verbose: false
 
-Kibana use default variable.
+* elasticsearch.host: localhost
 
-logging.dest: stdout
-logging.silent: false
-logging.quiet: false
-logging.verbose: false
-elasticsearch.host: localhost
-elasticsearch.port: 9200
+* elasticsearch.port: 9200
 
-Run Example
+###Run Example
 
-docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=localhost --name kibana
+`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=localhost --name kibana`
