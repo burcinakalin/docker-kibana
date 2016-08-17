@@ -2,22 +2,40 @@
 
 set -e
 
+#default value of environment variables
+ELASTICSEARCH_HOST=${ELASTICSEARCH_HOST:-localhost} 
+ELASTICSEARCH_PORT=${ELASTICSEARCH_PORT:-9200}
+
+SERVER_MAX_PAY_LOAD_BYTES=${SERVER_MAX_PAY_LOAD_BYTES:-1048576} 
+ELASTICSEARCH_PRESERVE_HOST=${ELASTICSEARCH_PRESERVE_HOST:-true}
+KIBANA_DEFAULT_APP_ID=${KIBANA_DEFAULT_APP_ID:-discover}
+ELASTICSEARCH_PING_TIME_OUT=${ELASTICSEARCH_PING_TIME_OUT:-1500}
+ELASTICSEARCH_REQUEST_TIME_OUT=${ELASTICSEARCH_REQUEST_TIME_OUT:-30000}
+ELASTICSEARCH_SHARD_TIME_OUT=${ELASTICSEARCH_SHARD_TIME_OUT:-0}
+ELASTICSEARCH_STARTUP_TIME_OUT=${ELASTICSEARCH_STARTUP_TIME_OUT:-5000}
 LOGGING_DEST=${LOGGING_DEST:-stdout}
 LOGGING_SILENT=${LOGGING_SILENT:-false}
 LOGGING_QUIET=${LOGGING_QUIET:-false}
 LOGGING_VERBOSE=${LOGGING_VERBOSE:-false}
 
-ELASTICSEARCH_HOST=${ELASTICSEARCH_HOST:-localhost} 
-ELASTICSEARCH_PORT=${ELASTICSEARCH_PORT:-9200}
-
 sed -i "s/ELASTICSEARCH_HOST/${ELASTICSEARCH_HOST}/g" /$KIBANA_CONF_DIR/kibana.yml
 sed -i "s/ELASTICSEARCH_PORT/${ELASTICSEARCH_PORT}/g" /$KIBANA_CONF_DIR/kibana.yml
 
+sed -i "s/SERVER_MAX_PAY_LOAD_BYTES/${SERVER_MAX_PAY_LOAD_BYTES}/g" /$KIBANA_CONF_DIR/kibana.yml
+sed -i "s/ELASTICSEARCH_PRESERVE_HOST/${ELASTICSEARCH_PRESERVE_HOST}/g" /$KIBANA_CONF_DIR/kibana.yml
+sed -i "s/KIBANA_DEFAULT_APP_ID/${KIBANA_DEFAULT_APP_ID}/g" /$KIBANA_CONF_DIR/kibana.yml
+sed -i "s/ELASTICSEARCH_PING_TIME_OUT/${ELASTICSEARCH_PING_TIME_OUT}/g" /$KIBANA_CONF_DIR/kibana.yml
+sed -i "s/ELASTICSEARCH_REQUEST_TIME_OUT/${ELASTICSEARCH_REQUEST_TIME_OUT}/g" /$KIBANA_CONF_DIR/kibana.yml
+sed -i "s/ELASTICSEARCH_SHARD_TIME_OUT/${ELASTICSEARCH_SHARD_TIME_OUT}/g" /$KIBANA_CONF_DIR/kibana.yml
+sed -i "s/ELASTICSEARCH_STARTUP_TIME_OUT/${ELASTICSEARCH_STARTUP_TIME_OUT}/g" /$KIBANA_CONF_DIR/kibana.yml
 sed -i "s/LOGGING_DEST/${LOGGING_DEST}/g" /$KIBANA_CONF_DIR/kibana.yml
 sed -i "s/LOGGING_SILENT/${LOGGING_SILENT}/g" /$KIBANA_CONF_DIR/kibana.yml
 sed -i "s/LOGGING_QUIET/${LOGGING_QUIET}/g" /$KIBANA_CONF_DIR/kibana.yml
 sed -i "s/LOGGING_VERBOSE/${LOGGING_VERBOSE}/g" /$KIBANA_CONF_DIR/kibana.yml
 
+
+
+# username is entered but password isn't entered so returns an error message
 if [ ! -z  ${ELASTICSEARCH_USER} ]
 then
 	sed -i "s/#elasticsearch.username/elasticsearch.username/g" /$KIBANA_CONF_DIR/kibana.yml
@@ -25,12 +43,13 @@ then
 	
 	if [ -z ${ELASTICSEARCH_PASS} ]
 	then
-		echo "password gir"
+		echo "please enter the password'"
 		exit 1
 	fi
 
 fi
 
+#password is entered but username isn't entered so returns an error message
 if [ ! -z ${ELASTICSEARCH_PASS} ]
 then
 	sed -i "s/#elasticsearch.password/elasticsearch.password/g" /$KIBANA_CONF_DIR/kibana.yml
@@ -38,7 +57,7 @@ then
 
         if [ -z ${ELASTICSEARCH_USER} ]
         then
-                echo "user girmediniz"
+                echo "please enter the username! "
 		exit  1
 	fi
 
