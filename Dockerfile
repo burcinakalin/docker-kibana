@@ -8,7 +8,9 @@ ENV KIBANA_CONF_DIR $KIBANA_EXTRACT_DIR/kibana-$KIBANA_VERSION-linux-x64/config
 
 RUN apt-get update && apt-get -y install curl && \
     curl https://download.elastic.co/kibana/kibana/$KIBANA_FILE --output $KIBANA_FILE && \
-    tar -xzf $KIBANA_FILE -C $KIBANA_EXTRACT_DIR
+    tar -xzf $KIBANA_FILE -C $KIBANA_EXTRACT_DIR && \
+    apt-get clean curl && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY kibana.yml $KIBANA_CONF_DIR
 
