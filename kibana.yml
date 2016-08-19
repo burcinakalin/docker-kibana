@@ -6,10 +6,10 @@
 
 # If you are running kibana behind a proxy, and want to mount it at a path,
 # specify that path here. The basePath can't end in a slash.
-# server.basePath: ""
+server.basePath: SERVER_BASEPATH 
 
 # The maximum payload size in bytes on incoming server requests.
-server.maxPayloadBytes: SERVER_MAXPAYLOADBYTES
+server.maxPayloadBytes: SERVER_MAX_PAYLOAD_BYTES
 
 # The Elasticsearch instance to use for all your queries.
 elasticsearch.url: 'http://ELASTICSEARCH_HOST:ELASTICSEARCH_PORT'
@@ -20,7 +20,7 @@ elasticsearch.preserveHost: ELASTICSEARCH_PRESERVE_HOST
 
 # Kibana uses an index in Elasticsearch to store saved searches, visualizations
 # and dashboards. It will create a new index if it doesn't already exist.
-# kibana.index: ".kibana"
+# kibana.index: "KIBANA_INDEX"
 
 # The default application to load.
 kibana.defaultAppId: "KIBANA_DEFAULT_APP_ID"
@@ -64,7 +64,7 @@ elasticsearch.shardTimeout: ELASTICSEARCH_SHARD_TIME_OUT
 elasticsearch.startupTimeout: ELASTICSEARCH_STARTUP_TIME_OUT
 
 # Set the path to where you would like the process id file to be created.
-# pid.file: /var/run/kibana.pid
+# pid.file: /var/run/kibana.pid 
 
 # If you would like to send the log output to a file you can set the path below.
 logging.dest: LOGGING_DEST
