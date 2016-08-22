@@ -67,4 +67,27 @@ then
 
 fi
 
+#
+if [ ! -z ${SERVER_SSL_CERT} ]
+then
+        sed -i "s/#server.ssl.cert/server.ssl.cert/g" /$KIBANA_CONF_DIR/kibana.yml
+        sed -i "s/SERVER_SSL_CERT/${SERVER_SSL_CERT}/g" /$KIBANA_CONF_DIR/kibana.yml
+
+fi
+
+if [ ! -z ${SERVER_SSL_KEY} ]
+then
+        sed -i "s/#server.ssl.key/server.ssl.key/g" /$KIBANA_CONF_DIR/kibana.yml
+        sed -i "s/SERVER_SSL_KEY/${SERVER_SSL_KEY}/g" /$KIBANA_CONF_DIR/kibana.yml
+
+fi
+
+if [ ! -z ${PID_FILE} ]
+then
+        sed -i "s/#pid.file/pid.file/g" /$KIBANA_CONF_DIR/kibana.yml
+        sed -i "s/PID_FILE/${PID_FILE}/g" /$KIBANA_CONF_DIR/kibana.yml
+
+fi
+
+
 exec "$@"

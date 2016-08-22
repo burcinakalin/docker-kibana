@@ -20,7 +20,7 @@ elasticsearch.preserveHost: ELASTICSEARCH_PRESERVE_HOST
 
 # Kibana uses an index in Elasticsearch to store saved searches, visualizations
 # and dashboards. It will create a new index if it doesn't already exist.
-# kibana.index: "KIBANA_INDEX"
+kibana.index: "KIBANA_INDEX"
 
 # The default application to load.
 kibana.defaultAppId: "KIBANA_DEFAULT_APP_ID"
@@ -33,8 +33,8 @@ kibana.defaultAppId: "KIBANA_DEFAULT_APP_ID"
 #elasticsearch.password: "ELASTICSEARCH_PASS"
 
 # SSL for outgoing requests from the Kibana Server to the browser (PEM formatted)
-# server.ssl.cert: /path/to/your/server.crt
-# server.ssl.key: /path/to/your/server.key
+#server.ssl.cert: SERVER_SSL_CERT 
+#server.ssl.key: SERVER_SSL_KEY
 
 # Optional setting to validate that your Elasticsearch backend uses the same key files (PEM formatted)
 # elasticsearch.ssl.cert: /path/to/your/client.crt
@@ -64,7 +64,7 @@ elasticsearch.shardTimeout: ELASTICSEARCH_SHARD_TIME_OUT
 elasticsearch.startupTimeout: ELASTICSEARCH_STARTUP_TIME_OUT
 
 # Set the path to where you would like the process id file to be created.
-# pid.file: /var/run/kibana.pid 
+#pid.file: PID_FILE 
 
 # If you would like to send the log output to a file you can set the path below.
 logging.dest: LOGGING_DEST
