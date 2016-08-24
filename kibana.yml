@@ -50,18 +50,18 @@ kibana.defaultAppId: "KIBANA_DEFAULT_APP_ID"
 
 # Time in milliseconds to wait for elasticsearch to respond to pings, defaults to
 # request_timeout setting
-elasticsearch.pingTimeout: ELASTICSEARCH_PING_TIME_OUT
+elasticsearch.pingTimeout: ELASTICSEARCH_PING_TIMEOUT
 
 # Time in milliseconds to wait for responses from the back end or elasticsearch.
 # This must be > 0
-elasticsearch.requestTimeout: ELASTICSEARCH_REQUEST_TIME_OUT
+elasticsearch.requestTimeout: ELASTICSEARCH_REQUEST_TIMEOUT
 
 # Time in milliseconds for Elasticsearch to wait for responses from shards.
 # Set to 0 to disable.
-elasticsearch.shardTimeout: ELASTICSEARCH_SHARD_TIME_OUT
+elasticsearch.shardTimeout: ELASTICSEARCH_SHARD_TIMEOUT
 
 # Time in milliseconds to wait for Elasticsearch at Kibana startup before retrying
-elasticsearch.startupTimeout: ELASTICSEARCH_STARTUP_TIME_OUT
+elasticsearch.startupTimeout: ELASTICSEARCH_STARTUP_TIMEOUT
 
 # Set the path to where you would like the process id file to be created.
 #pid.file: PID_FILE 

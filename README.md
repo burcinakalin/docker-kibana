@@ -1,91 +1,74 @@
 ##About this Repo 
 
 This is the Git repo of the Docker image for Kibana. 
-
-###Usage 
-
-##If you would like to set to environment variable 
-
-* elasticsearch.url: 'http://ELASTICSEARCH_HOST:ELASTICSEARCH_PORT'
-
-* server.maxPayloadBytes: SERVER_MAX_PAY_LOAD_BYTES -> byte size 
-
-* elasticsearch.preserveHost: ELASTICSEARCH_PRESERVE_HOST -> true or false
-
-* kibana.index: KIBANA_INDEX -> Kibana uses an index in Elasticsearch to store saved searches, visualizations and dashboards. 
-
-* kibana.defaultAppId: KIBANA_DEFAULT_APP_ID -> application name 
-
-* elasticsearch.pingTimeout: ELASTICSEARCH_PING_TIME_OUT -> Time in milliseconds
-
-* elasticsearch.requestTimeout: ELASTICSEARCH_REQUEST_TIME_OUT -> Time in milliseconds
-
-* elasticsearch.shardTimeout: ELASTICSEARCH_SHARD_TIME_OUT -> Time in milliseconds
-
-* elasticsearch.startupTimeout: ELASTICSEARCH_STARTUP_TIME_OUT -> Time in milliseconds
  
-* logging.dest: LOGGING_DEST ->  If you would like to send the log output to a file you can set the path below. 
 
-* logging.silent: LOGGING_SILENT -> true or false
+###If you would like to set to environment variable: environment variable -> explanation -> default variable
 
-* logging.quiet: LOGGING_QUIET -> true or false 
+* elasticsearch.url: 'http://ELASTICSEARCH_HOST:ELASTICSEARCH_PORT'  
+  ELASTICSEARCH_HOST -> localhost
+  ELASTICSEARCH_PORT -> 9200
 
-* logging.verbose: LOGGING_VERBOSE -> true or false 
+* SERVER_MAX_PAYLOAD_BYTES -> byte size -> 1048576
 
-* server.ssl.cert: SERVER_SSL_CERT 
+* ELASTICSEARCH_PRESERVE_HOST -> true or false -> true 
 
-* server.ssl.key: SERVER_SSL_KEY
+* KIBANA_INDEX -> Kibana uses an index in Elasticsearch to store saved searches, visualizations and dashboards. -> .kibana
 
-* elasticsearch.username: ELASTICSEARCH_USER
+* KIBANA_DEFAULT_APP_ID -> application name -> discover
 
-* elasticsearch.password: ELASTICSEARCH_PASS
+* ELASTICSEARCH_PING_TIMEOUT -> Time in milliseconds -> 1500
 
-* pid.file: PID_FILE
+* ELASTICSEARCH_REQUEST_TIMEOUT -> Time in milliseconds -> 30000
 
-##Kibana use default variable.
+* ELASTICSEARCH_SHARD_TIMEOUT -> Time in milliseconds -> 0
 
-* ELASTICSEARCH_HOST: localhost
-
-* ELASTICSEARCH_PORT: 9200
-
-* SERVER_MAX_PAY_LOAD_BYTES: 1048576
+* ELASTICSEARCH_STARTUP_TIMEOUT -> Time in milliseconds -> 5000
  
-* ELASTICSEARCH_PRESERVE_HOST: true
+* LOGGING_DEST ->  If you would like to send the log output to a file you can set the path below. -> stdout
 
-* KIBANA_INDEX: .kibana
+* LOGGING_SILENT -> true or false -> false 
 
-* KIBANA_DEFAULT_APP_ID: discover
+* LOGGING_QUIET -> true or false -> false 
 
-* ELASTICSEARCH_PING_TIME_OUT: 1500
+* LOGGING_VERBOSE -> true or false -> false
 
-* ELASTICSEARCH_REQUEST_TIME_OUT: 30000
+* SSL for outgoing requests from the Kibana Server to the browser.
+  SERVER_SSL_CERT 
 
-* ELASTICSEARCH_SHARD_TIME_OUT: 0
+  SERVER_SSL_KEY
 
-* ELASTICSEARCH_STARTUP_TIME_OUT: 5000
+* If your Elasticsearch is protected with basic auth.
+  ELASTICSEARCH_USER
 
-* LOGGING_DEST: stdout
+  ELASTICSEARCH_PASS
 
-* LOGGING_SILENT: false
-
-* LOGGING_QUIET: false
-
-* LOGGING_VERBOSE: false
+* Set the path to where you would like the process id file to be created.
+  PID_FILE
 
 
-###Run Example
+##Usage
 
-`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=localhost --name kibana`
+The basic commands that can be executed:
+`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host --name kibana`
 
-if you want SSL for outgoing requests, use -v parameter.
+###if you want SSL for outgoing requests, use volume.
 
 SERVER_SSL_CERT environment valiable's path must same /path/to/your/container/cert/
 SERVER_SSL_KEY environment valiable's path must same /path/to/your/container/key/
 
-`docker run -d -p 5601:5601 -e SERVER_SSL_CERT=/path/to/your/container/server.crt -e SERVER_SSL_KEY=/path/to/your/container/server.key -v /path/to/your/host/cert/:/path/to/container/cert/ -v /path/to/your/host/key/:/path/to/your/container/key/ --name kibana`
+`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e SERVER_SSL_CERT=/path/to/your/container/server.crt -e SERVER_SSL_KEY=/path/to/your/container/server.key -v /path/to/your/host/cert/:/path/to/container/cert/ -v /path/to/your/host/key/:/path/to/your/container/key/ --name kibana`
 
 
 if you enter user environment variable, you must enter password environment.
 if you enter password environment variable, you must enter user environment.
 
-`docker run -d -p 5601:5601 -e ELASTICSEARCH_USER=user -e ELASTICSEARCH_PASS=password --name kibana`
+`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e ELASTICSEARCH_USER=your_user -e ELASTICSEARCH_PASS=your_password --name kibana`
+
+
+
+`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e LOGGING_SILENT=true -e LOGGING_QUIET=true -e LOGGING_VERBOSE=true --name kibana`
+
+##Tag
+
+1.3 -> Elasticsearch 2.3.x  Kibana-4.5.4 
