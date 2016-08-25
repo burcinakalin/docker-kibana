@@ -1,7 +1,6 @@
 ##About this Repo 
 
 This is the Git repo of the Docker image for Kibana. 
- 
 
 ###If you would like to set to environment variable: environment variable -> explanation -> default variable
 
