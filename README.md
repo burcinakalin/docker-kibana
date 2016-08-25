@@ -71,4 +71,4 @@ if you enter password environment variable, you must enter user environment.
 
 ##Tag
 
-1.3 -> Elasticsearch 2.3.x  Kibana-4.5.4 
+1.3 -> Kibana-4.5.4 
