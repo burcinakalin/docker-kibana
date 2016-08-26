@@ -56,17 +56,17 @@ The basic commands that can be executed:
 SERVER_SSL_CERT environment valiable's path must same /path/to/your/container/cert/
 SERVER_SSL_KEY environment valiable's path must same /path/to/your/container/key/
 
-`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e SERVER_SSL_CERT=/path/to/your/container/server.crt -e SERVER_SSL_KEY=/path/to/your/container/server.key -v /path/to/your/host/cert/:/path/to/container/cert/ -v /path/to/your/host/key/:/path/to/your/container/key/ --name kibana`
+`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e SERVER_SSL_CERT=/path/to/your/container/server.crt -e SERVER_SSL_KEY=/path/to/your/container/server.key -v /path/to/your/host/cert/:/path/to/container/cert/ -v /path/to/your/host/key/:/path/to/your/container/key/ kibana`
 
 
 if you enter user environment variable, you must enter password environment.
 if you enter password environment variable, you must enter user environment.
 
-`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e ELASTICSEARCH_USER=your_user -e ELASTICSEARCH_PASS=your_password --name kibana`
+`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e ELASTICSEARCH_USER=your_user -e ELASTICSEARCH_PASS=your_password kibana`
 
 
 
-`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e LOGGING_SILENT=true -e LOGGING_QUIET=true -e LOGGING_VERBOSE=true --name kibana`
+`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e LOGGING_SILENT=true -e LOGGING_QUIET=true -e LOGGING_VERBOSE=true kibana`
 
 ##Tag
 
