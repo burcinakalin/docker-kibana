@@ -37,57 +37,44 @@ sed -i "s/LOGGING_SILENT/${LOGGING_SILENT}/g" /$KIBANA_CONF_DIR/kibana.yml
 sed -i "s/LOGGING_QUIET/${LOGGING_QUIET}/g" /$KIBANA_CONF_DIR/kibana.yml
 sed -i "s/LOGGING_VERBOSE/${LOGGING_VERBOSE}/g" /$KIBANA_CONF_DIR/kibana.yml
 
-
-
 # username is entered but password isn't entered so returns an error message
 if [ ! -z  ${ELASTICSEARCH_USER} ]
 then
-	sed -i "s/#elasticsearch.username/elasticsearch.username/g" /$KIBANA_CONF_DIR/kibana.yml
-	sed -i "s/ELASTICSEARCH_USER/${ELASTICSEARCH_USER}/g" /$KIBANA_CONF_DIR/kibana.yml
-	
+	sed -i "s/#elasticsearch.username:.*/elasticsearch.username: ${ELASTICSEARCH_USER}/g" /$KIBANA_CONF_DIR/kibana.yml
+
 	if [ -z ${ELASTICSEARCH_PASS} ]
 	then
-		echo "please enter the password'"
+		echo "please enter the password!"
 		exit 1
 	fi
 
 fi
-
 #password is entered but username isn't entered so returns an error message
 if [ ! -z ${ELASTICSEARCH_PASS} ]
 then
-	sed -i "s/#elasticsearch.password/elasticsearch.password/g" /$KIBANA_CONF_DIR/kibana.yml
-	sed -i "s/ELASTICSEARCH_PASS/${ELASTICSEARCH_PASS}/g" /$KIBANA_CONF_DIR/kibana.yml
+	sed -i "s/#elasticsearch.password:.*/elasticsearch.password: ${ELASTICSEARCH_PASS}/g" /$KIBANA_CONF_DIR/kibana.yml
 
         if [ -z ${ELASTICSEARCH_USER} ]
         then
-                echo "please enter the username! "
+                echo "please enter the username!"
 		exit  1
 	fi
 
 fi
 
-#
+if [ ! -z ${PID_FILE} ]
+then
+	sed -i "s/#pid.file:.*/pid.file: ${PID_FILE}/g" /$KIBANA_CONF_DIR/kibana.yml
+fi
+
 if [ ! -z ${SERVER_SSL_CERT} ]
 then
-        sed -i "s/#server.ssl.cert/server.ssl.cert/g" /$KIBANA_CONF_DIR/kibana.yml
-        sed -i "s/SERVER_SSL_CERT/${SERVER_SSL_CERT}/g" /$KIBANA_CONF_DIR/kibana.yml
-
+	sed -i "s/#server.ssl.cert:.*/server.ssl.cert: ${SERVER_SSL_CERT}/g" /$KIBANA_CONF_DIR/kibana.yml
 fi
 
 if [ ! -z ${SERVER_SSL_KEY} ]
 then
-        sed -i "s/#server.ssl.key/server.ssl.key/g" /$KIBANA_CONF_DIR/kibana.yml
-        sed -i "s/SERVER_SSL_KEY/${SERVER_SSL_KEY}/g" /$KIBANA_CONF_DIR/kibana.yml
-
+	sed -i "#server.ssl.key:.*/server.ssl.key: ${SERVER_SSL_KEY}/g" /$KIBANA_CONF_DIR/kibana.yml
 fi
-
-if [ ! -z ${PID_FILE} ]
-then
-        sed -i "s/#pid.file/pid.file/g" /$KIBANA_CONF_DIR/kibana.yml
-        sed -i "s/PID_FILE/${PID_FILE}/g" /$KIBANA_CONF_DIR/kibana.yml
-
-fi
-
 
 exec "$@"

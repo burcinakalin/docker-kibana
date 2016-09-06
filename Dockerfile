@@ -1,5 +1,7 @@
 FROM debian:jessie
 
+MAINTAINER Burcin Akalin brcnakalin@gmail.com
+
 ENV KIBANA_VERSION 4.5.4
 ENV KIBANA_FILE kibana-$KIBANA_VERSION-linux-x64.tar.gz
 ENV KIBANA_EXTRACT_DIR /var/lib

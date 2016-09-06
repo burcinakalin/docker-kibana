@@ -1,8 +1,8 @@
-##About this Repo 
+## About this Repo 
 
 This is the Git repo of the Docker image for Kibana. 
 
-###If you would like to set to environment variable: environment variable -> explanation -> default variable
+### If you would like to set to environment variable: environment variable -> explanation -> default variable
 
 * elasticsearch.url: 'http://ELASTICSEARCH_HOST:ELASTICSEARCH_PORT'  
   ELASTICSEARCH_HOST -> localhost
@@ -45,29 +45,26 @@ This is the Git repo of the Docker image for Kibana.
 * Set the path to where you would like the process id file to be created.
   PID_FILE
 
-
-##Usage
+## Usage
 
 The basic commands that can be executed:
-`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host --name kibana`
+`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host burcina/docker-kibana`
 
-###if you want SSL for outgoing requests, use volume.
+### if you want SSL for outgoing requests, use volume.
 
 SERVER_SSL_CERT environment valiable's path must same /path/to/your/container/cert/
 SERVER_SSL_KEY environment valiable's path must same /path/to/your/container/key/
 
-`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e SERVER_SSL_CERT=/path/to/your/container/server.crt -e SERVER_SSL_KEY=/path/to/your/container/server.key -v /path/to/your/host/cert/:/path/to/container/cert/ -v /path/to/your/host/key/:/path/to/your/container/key/ kibana`
-
+`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e SERVER_SSL_CERT=/path/to/your/container/server.crt -e SERVER_SSL_KEY=/path/to/your/container/server.key -v /path/to/your/host/cert/:/path/to/container/cert/ -v /path/to/your/host/key/:/path/to/your/container/key/ burcina/docker-kibana`
 
 if you enter user environment variable, you must enter password environment.
 if you enter password environment variable, you must enter user environment.
 
-`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e ELASTICSEARCH_USER=your_user -e ELASTICSEARCH_PASS=your_password kibana`
+`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e ELASTICSEARCH_USER=your_user -e ELASTICSEARCH_PASS=your_password burcina/docker-kibana`
 
 
+`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e LOGGING_SILENT=true -e LOGGING_QUIET=true -e LOGGING_VERBOSE=true burcina/docker-kibana`
 
-`docker run -d -p 5601:5601 -e ELASTICSEARCH_HOST=your_elasticsearch_host -e LOGGING_SILENT=true -e LOGGING_QUIET=true -e LOGGING_VERBOSE=true kibana`
-
-##Tag
+## Tag
 
 1.3 -> Kibana-4.5.4 
