@@ -1,3 +1,6 @@
+[![](https://images.microbadger.com/badges/version/burcina/docker-kibana.svg)](http://microbadger.com/images/burcina/docker-kibana "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/burcina/docker-kibana.svg)](http://microbadger.com/images/burcina/docker-kibana "Get your own image badge on microbadger.com")
+
+
 ## About this Repo 
 
 This is the Git repo of the Docker image for Kibana. 
@@ -5,45 +8,45 @@ This is the Git repo of the Docker image for Kibana.
 ### If you would like to set to environment variable: environment variable -> explanation -> default variable
 
 * elasticsearch.url: 'http://ELASTICSEARCH_HOST:ELASTICSEARCH_PORT'  
-  ELASTICSEARCH_HOST -> localhost
-  ELASTICSEARCH_PORT -> 9200
+  `ELASTICSEARCH_HOST` -> localhost
+  `ELASTICSEARCH_PORT` -> 9200
 
-* SERVER_MAX_PAYLOAD_BYTES -> byte size -> 1048576
+* `SERVER_MAX_PAYLOAD_BYTES` -> byte size -> 1048576
 
-* ELASTICSEARCH_PRESERVE_HOST -> true or false -> true 
+* `ELASTICSEARCH_PRESERVE_HOST` -> true or false -> true 
 
-* KIBANA_INDEX -> Kibana uses an index in Elasticsearch to store saved searches, visualizations and dashboards. -> .kibana
+* `KIBANA_INDEX` -> Kibana uses an index in Elasticsearch to store saved searches, visualizations and dashboards. -> .kibana
 
-* KIBANA_DEFAULT_APP_ID -> application name -> discover
+* `KIBANA_DEFAULT_APP_ID` -> application name -> discover
 
-* ELASTICSEARCH_PING_TIMEOUT -> Time in milliseconds -> 1500
+* `ELASTICSEARCH_PING_TIMEOUT` -> Time in milliseconds -> 1500
 
-* ELASTICSEARCH_REQUEST_TIMEOUT -> Time in milliseconds -> 30000
+* `ELASTICSEARCH_REQUEST_TIMEOUT` -> Time in milliseconds -> 30000
 
-* ELASTICSEARCH_SHARD_TIMEOUT -> Time in milliseconds -> 0
+* `ELASTICSEARCH_SHARD_TIMEOUT` -> Time in milliseconds -> 0
 
-* ELASTICSEARCH_STARTUP_TIMEOUT -> Time in milliseconds -> 5000
+* `ELASTICSEARCH_STARTUP_TIMEOUT` -> Time in milliseconds -> 5000
  
-* LOGGING_DEST ->  If you would like to send the log output to a file you can set the path below. -> stdout
+* `LOGGING_DEST` ->  If you would like to send the log output to a file you can set the path below. -> stdout
 
-* LOGGING_SILENT -> true or false -> false 
+* `LOGGING_SILENT` -> true or false -> false 
 
-* LOGGING_QUIET -> true or false -> false 
+* `LOGGING_QUIET` -> true or false -> false 
 
-* LOGGING_VERBOSE -> true or false -> false
+* `LOGGING_VERBOSE` -> true or false -> false
 
 * SSL for outgoing requests from the Kibana Server to the browser.
-  SERVER_SSL_CERT 
+  `SERVER_SSL_CERT` 
 
-  SERVER_SSL_KEY
+  `SERVER_SSL_KEY`
 
 * If your Elasticsearch is protected with basic auth.
-  ELASTICSEARCH_USER
+  `ELASTICSEARCH_USER`
 
-  ELASTICSEARCH_PASS
+  `ELASTICSEARCH_PASS`
 
 * Set the path to where you would like the process id file to be created.
-  PID_FILE
+   `PID_FILE`
 
 ## Usage
 
